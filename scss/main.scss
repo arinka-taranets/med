@@ -1,0 +1,2070 @@
+@import "_media";
+@import "_mixins";
+@import "_variables";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@400;700;800&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: $FontNunito;
+    font-size: $FontSize;
+    line-height: $mainLineHeight;
+    color: $mainColor;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 28px;
+    line-height: normal;
+    font-weight: 700;
+    font-family: $FontMontserrat;
+}
+h1 {
+    color: #fabf58;
+    font-size: calcFluidFontSize(48, 82, 320, 2560);
+    line-height: 82px;
+    @include mq("phone-landscape") {
+        line-height: 72px;
+    }
+    @include mq("tablet") {
+        line-height: 52px;
+    }
+}
+h2 {
+    margin: 0 0 30px;
+    font-size: calcFluidFontSize(28, 48, 320, 2560);
+}
+h3 {
+    font-size: 24px;
+    margin: 0 0 20px;
+    font-size: calcFluidFontSize(20, 24, 320, 2560);
+}
+h4 {
+    font-size: 18px;
+    font-family: $FontNunito;
+}
+h5 {
+    font-size: 24px;
+    margin: 0 0 21px;
+    font-size: calcFluidFontSize(20, 24, 320, 2560);
+}
+h6 {
+    font-size: 14px;
+    margin-bottom: 7px;
+    line-height: 24px;
+    font-family: $FontNunito;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+p {
+    margin: 0;
+    line-height: 30px;
+    @include mq("phablet") {
+        line-height: 24px;
+    }
+}
+a {
+    color: #2d92d3;
+    &:hover {
+        color: #fabf58;
+    }
+}
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+.btn {
+    border-radius: 20px;
+    font-size: 13px;
+    height: 37px;
+    padding: 0 22px 2px;
+    transition: all 0.3s ease-in-out;
+    &-contacts {
+        color: #65609d;
+        border: 1px solid #3f3b71;
+        margin-left: 30px;
+        @include mq("phablet") {
+            margin-left: 0;
+        }
+        &:hover {
+            border: 1px solid #3f3b71;
+            background: #3f3b71;
+            color: #817cbf;
+        }
+    }
+    &-get {
+        font-size: 18px;
+        color: #fff;
+        font-weight: 700;
+        font-family: $FontNunito;
+        background: #de4a60;
+        line-height: 24px;
+        white-space: nowrap;
+        height: 47px;
+        border-radius: 23px;
+        padding: 0 40px 2px;
+        &:hover {
+            background: #c63147;
+        }
+        @include mq("phone-landscape") {
+            float: right;
+        }
+        @include mq("phone") {
+            float: left;
+            margin-top: 20px;
+        }
+    }
+}
+.d-f {
+    display: flex;
+}
+.jc-between {
+    justify-content: space-between;
+}
+.ai-center {
+    align-items: center;
+}
+.row {
+    margin: 0 -25px;
+    display: flex;
+    flex-wrap: wrap;
+    @include mq("phone-landscape") {
+        margin: 0 -10px;
+    }
+}
+.col {
+    padding: 0 25px 25px;
+    flex: 0 1 100%;
+    @include mq("phone-landscape") {
+        padding: 0 10px 15px;
+    }
+}
+.col-4 {
+    flex: 0 1 25%;
+}
+.col-2 {
+    flex: 0 1 50%;
+}
+.col-3 {
+    flex: 0 1 33.33%;
+}
+.col-7 {
+    width: calc(100% / 7);
+    flex: auto;
+}
+.col-md-2 {
+    @include mq("phone-landscape") {
+        flex: 0 1 50%;
+        margin-bottom: 20px;
+    }
+}
+.col-sm-1 {
+    @include mq("tablet-small") {
+        flex: 0 1 100%;
+        margin: 0 0 9px;
+        display: block;
+    }
+}
+.rub {
+    font-size: inherit;
+    color: inherit;
+    position: relative;
+    &:after {
+        content: " ";
+        position: absolute;
+        display: inline-block;
+        width: 63%;
+        height: 7%;
+        top: auto;
+        bottom: 35%;
+        left: -5%;
+        background: #fff;
+    }
+}
+/* wrapper */
+.wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 0 25px;
+    @include mq("tablet-wide") {
+        padding: 0 20px;
+    }
+    @include mq("phone") {
+        padding: 0 10px;
+    }
+}
+/* header */
+.header {
+    position: absolute;
+    left: 0;
+    top: 37px;
+    z-index: 2;
+    width: 100%;
+    @include mq("phone-landscape") {
+        padding-bottom: 15px;
+        top: 27px;
+    }
+    /* holder */
+    .holder {
+        &-logo {
+            margin-right: 57px;
+            float: left;
+            @include mq("tablet-wide") {
+                margin-right: 15px;
+            }
+            @include mq("phone-landscape") {
+                float: none;
+                margin: 0 0 25px;
+                display: flex;
+                justify-content: center;
+            }
+            .logo {
+                display: block;
+                width: 76px;
+                height: 32px;
+                background: url(../image/svg/logo.svg) no-repeat;
+            }
+        }
+        &-contacts {
+            float: right;
+            @include mq("phone-landscape") {
+                float: none;
+                display: flex;
+                justify-content: space-between;
+            }
+            .mail {
+                float: left;
+                padding-top: 4px;
+                @include mq("phone-landscape") {
+                    margin: 0 0 0 30px;
+                }
+                a {
+                    border-bottom: 1px solid #3f3b71;
+                    position: relative;
+                    padding: 0 0 3px;
+                    float: left;
+                    transition: all 0.3s ease-in-out;
+                    &:after {
+                        display: block;
+                        content: " ";
+                        background: url(../image/svg/mail.svg) no-repeat;
+                        width: 14px;
+                        height: 11px;
+                        position: absolute;
+                        top: 50%;
+                        left: -27px;
+                        margin: -7px 0 0;
+                    }
+                }
+            }
+        }
+    }
+    /* menu */
+    .menu {
+        float: left;
+        padding-top: 6px;
+        @include mq("phone-landscape") {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            visibility: hidden;
+            background: #12111e;
+        }
+        ul {
+            @include mq("phone-landscape") {
+                display: block;
+                width: 100%;
+            }
+        }
+        li {
+            margin-right: 41px;
+            @include mq("tablet-landscape") {
+                margin-right: 21px;
+            }
+            @include mq("phone-landscape") {
+                display: block;
+                text-align: center;
+                padding-top: 5px;
+                margin: 0 20px;
+            }
+        }
+        a {
+            float: left;
+            border-bottom: 1px solid #3f3b71;
+            padding-bottom: 5px;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: #fabf58;
+            }
+            @include mq("phone-landscape") {
+                display: block;
+                float: none;
+                line-height: 24px;
+                padding: 15px 0;
+            }
+        }
+    }
+    /* menu-opener */
+    .menu-opener {
+        display: none;
+        @include mq("phone-landscape") {
+            display: block;
+            width: 27px;
+            height: 26px;
+            position: absolute;
+            top: 3px;
+            left: 35px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        &:before {
+            @include mq("phone-landscape") {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 1px;
+                width: 50px;
+                left: 50%;
+                background-color: #2d92d3;
+                transform: translateX(-50%);
+                transition: all ease-in-out 0.3s;
+                top: 0;
+            }
+        }
+        &:after {
+            @include mq("phone-landscape") {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 1px;
+                width: 50px;
+                left: 50%;
+                background-color: #2d92d3;
+                transform: translateX(-50%);
+                transition: all ease-in-out 0.3s;
+                bottom: 0;
+            }
+        }
+        span {
+            opacity: 1;
+            @include mq("phone-landscape") {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 1px;
+                width: 50px;
+                left: 50%;
+                background-color: #2d92d3;
+                transform: translateX(-50%);
+                transition: all ease-in-out 0.3s;
+                top: 50%;
+            }
+        }
+        &:hover {
+            span,
+            &:after,
+            &:before {
+                background-color: #fabf58;
+            }
+        }
+    }
+    &.active {
+        .menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .menu-opener {
+            span {
+                opacity: 0;
+            }
+            &:after {
+                bottom: 50%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+                background-color: #2d92d3;
+                width: 37px;
+            }
+            &:before {
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+                background-color: #2d92d3;
+                width: 37px;
+            }
+            &:hover {
+                &:after,
+                &:before {
+                    background-color: #fabf58;
+                }
+            }
+        }
+    }
+}
+/* section */
+.section {
+    /* section-home */
+    &-home {
+        background: $colorBlueDark;
+        position: relative;
+        z-index: 1;
+        padding-top: 75px;
+        padding-bottom: 29px;
+        @include mq("phone-landscape") {
+            padding-top: 150px;
+        }
+        &:after {
+            content: " ";
+            display: block;
+            background: url(../image/bg01.png) no-repeat;
+            position: absolute;
+            bottom: -100px;
+            left: calc(50% + 67px);
+            width: 292px;
+            height: 100px;
+            @include mq("tablet-landscape") {
+               background-size: cover;
+            }
+            @include mq("phone-landscape") {
+                width: 272px;
+                bottom: -95px;
+                height: 95px;
+            }
+            @include mq("phablet") {
+                width: 192px;
+                height: 67px;
+                bottom: -67px;
+            }
+            @include mq("phone-wide") {
+                display: none;
+            }
+        }
+        /* slogan */
+        .slogan {
+            padding: 129px 600px 70px 0;
+            margin-bottom: 20px;
+            position: relative;
+            @include mq("tablet-wide") {
+                padding: 129px 500px 20px 0;
+            }
+            @include mq("phone-landscape") {
+                padding: 15px 450px 50px 0;
+            }
+            @include mq("tablet") {
+                padding: 15px 320px 20px 0;
+            }
+            @include mq("tablet-small") {
+                padding: 15px 0 20px 0;
+                text-align: center;
+            }
+            &:after {
+                position: absolute;
+                top: -63px;
+                right: -77px;
+                content: " ";
+                display: block;
+                background: url(../image/img-heart.png) no-repeat;
+                width: 765px;
+                height: 838px;
+                z-index: -1;
+                background-size: cover;
+                @include mq("tablet") {
+                    right: -177px;
+                }
+                @include mq("tablet-wide") {
+                    right: -150px;
+                }
+                @include mq("phone-landscape") {
+                    right:-80px;
+                    top: -120px;
+                    width: 665px;
+                    height: 738px;
+                }
+                @include mq("tablet") {
+                    width: 555px;
+                    height: 628px;
+                    right: -120px;
+                    top: -100px;
+                }
+                @include mq("tablet-small") {
+                    display: none;
+                }
+            }
+            p {
+                margin-bottom: 20px;
+                color: #fff;
+            }
+        }
+        /* utp */
+        .utp {
+            margin-bottom: 20px;
+            display: flex;
+            @include mq("phablet") {
+                text-align: center;
+            }
+            @include mq("phablet") {
+                padding: 0 40px;
+            }
+            &-img {
+                margin-bottom: 9px;
+                @include mq("phablet") {
+                    margin: 0 0 9px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            h6 {
+                color: #fff;
+            }
+            p {
+                color: #8784aa;
+                font-size: 13px;
+                line-height: 22px;
+                margin-bottom: 10px;
+                a {
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+            .col-md-2 {
+                @include mq("tablet-small") {
+                    flex: 0 1 50%;
+                }
+            }
+            .col-sm-1 {
+                @include mq("phablet") {
+                    flex: 0 1 100%;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    /* services */
+    &-services {
+        padding-bottom: 124px;
+
+        @include mq("phone-landscape") {
+            padding-bottom: 200px;
+        }
+        @include mq("phablet") {
+            padding-bottom: 140px;
+        }
+    }
+    .content-services {
+        background: #f6f5fb;
+        padding-top: 57px;
+        padding-bottom: 39px;
+        @include mq("phablet") {
+            padding-bottom: 9px;
+        }
+        h2 {
+            color: #3f3b71;
+        }
+        p {
+            line-height: 26px;
+            margin-bottom: 20px;
+        }
+        .md-width-text {
+            width: 556px;
+            margin-bottom: 54px;
+            @include mq("phone-landscape") {
+                width: auto;
+                margin-bottom: 24px;
+            }
+        }
+        .row {
+            margin: 0 -14px;
+            display: flex;
+            .col {
+                padding: 0 14px 25px;
+                display: flex;
+                flex-direction: column;
+                @include mq("phablet") {
+                    padding: 0 14px 15px;
+                }
+            }
+        }
+        .box-bg-white {
+            border-radius: 1px;
+            background: #fff;
+            padding: 28px 0 20px 47px;
+            flex: 1 1 auto;
+
+            @include mq("phone-landscape") {
+                padding: 10px 10px 20px 17px;
+            }
+            @include mq("phablet") {
+                height: auto;
+            }
+        }
+        .holder-picture {
+            margin: 0;
+            position: relative;
+            height: 190px;
+        }
+        .list {
+            margin: 0 0 20px;
+
+            li {
+                position: relative;
+                padding: 0 0 0 26px;
+
+                &:after {
+                    background: url(../image/svg/txt_bullet.svg) no-repeat;
+                    display: block;
+                    content: " ";
+                    width: 12px;
+                    height: 9px;
+                    position: absolute;
+                    top: 9px;
+                    left: 0;
+                }
+            }
+        }
+        .logo-box {
+            position: absolute;
+            top: 10px;
+            left: 187px;
+            width: 226px;
+
+            @include mq("phone-landscape") {
+                width: auto;
+                left: 185px;
+                right: 10px;
+                top: 20px;
+            }
+            @include mq("tablet") {
+                left: 165px;
+            }
+            @include mq("tablet-small") {
+                left: 185px;
+            }
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 6px 0 0;
+
+                @include mq("phone-landscape") {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    /* form-search */
+    .form-search {
+        background: #e9e8f3;
+        padding-top: 48px;
+        padding-bottom: 42px;
+        margin-bottom: 5px;
+
+        @include mq("phablet") {
+            padding-top: 28px;
+            padding-bottom: 22px;
+        }
+    }
+    /* forma */
+    .forma {
+        background: #fff;
+        height: 50px;
+        border-radius: 2px;
+        padding: 0 19px;
+
+        .submit {
+            display: inline-block;
+            vertical-align: middle;
+            background: url(../image/svg/search.svg) no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+        .input-box {
+            display: inline-block;
+            vertical-align: middle;
+            height: 50px;
+            width: calc(100% - 25px);
+            line-height: 30px;
+
+            input {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                padding: 0 6px;
+                color: #747382;
+                font-size: 16px;
+
+                &::placeholder {
+                    color: #747382;
+                }
+            }
+        }
+    }
+
+    /* price-box */
+    .price-box {
+        margin-bottom: 20px;
+    }
+
+    /* result */
+    .result {
+        padding-top: 43px;
+        align-items: flex-start;
+
+        @include mq("phone-landscape") {
+            display: block;
+        }
+
+        p {
+            font-size: 13px;
+            color: #747382;
+            line-height: 20px;
+            padding-top: 4px;
+
+            @include mq("phone-landscape") {
+                margin: 0 0 20px;
+            }
+        }
+
+        .cost-box {
+            width: calc(100% - 602px);
+            margin-left: 100px;
+            margin-right: 15px;
+            margin-top: -10px;
+
+            @include mq("tablet-landscape") {
+                width: calc(100% - 402px);
+            }
+            @include mq("tablet-wide") {
+                width: calc(100% - 245px);
+            }
+            @include mq("phone-landscape") {
+                width: auto;
+                float: left;
+                margin: 0;
+            }
+
+            p {
+                font-size: 14px;
+                color: #59558b;
+                line-height: 34px;
+                padding: 0;
+
+                @include mq("phone-landscape") {
+                    margin: 0;
+                }
+            }
+            .cost {
+                display: block;
+                font-size: 30px;
+                color: #12111e;
+                font-weight: 800;
+
+                .rub {
+                    &:after {
+                        background: #12111e;
+                    }
+                }
+            }
+        }
+    }
+
+    /* how */
+    &-how {
+        background: #59558b;
+        padding-top: 96px;
+        position: relative;
+        padding-bottom: 120px;
+
+        @include mq("tablet") {
+            padding-top: 57px;
+            padding-bottom: 50px;
+        }
+
+        &:after {
+            content: " ";
+            display: block;
+            background: url(../image/bg02.png) no-repeat;
+            position: absolute;
+            top: -100px;
+            left: calc(50% - 480px);
+            width: 287px;
+            height: 100px;
+
+            @include mq("tablet-wide") {
+                background-size: cover;
+                left: 110px;
+            }
+            @include mq("phone-landscape") {
+                left: 25px;
+                width: 267px;
+                height: 95px;
+                top: -95px;
+            }
+            @include mq("phablet") {
+                width: 192px;
+                height: 67px;
+                top: -67px;
+                right: 25px;
+            }
+            @include mq("phone-wide") {
+                display: none;
+            }
+        }
+        h2 {
+            color: #fff;
+            margin: 0 0 83px;
+
+            @include mq("phablet") {
+                margin: 0 0 30px;
+            }
+        }
+        .row {
+            margin: 0 -20px 8px;
+            display: flex;
+            align-items: flex-start;
+
+            @include mq("tablet-wide") {
+                margin: 0 -5px 8px;
+            }
+            @include mq("phone-landscape") {
+                display: block;
+            }
+        }
+        .col {
+            padding: 0 20px;
+            float: none;
+
+            @include mq("tablet-wide") {
+                padding: 0;
+            }
+            @include mq("phone-landscape") {
+                width: 100%;
+            }
+
+            .holder-picture {
+                min-height: 142px;
+                margin: 0 0 18px;
+                position: relative;
+                img {
+                    position: relative;
+                    z-index: 1;
+                }
+                @include mq("phone-landscape") {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 0 10px;
+                }
+            }
+
+            p {
+                color: #fff;
+                line-height: 24px;
+                margin: 0 -25px 0 -15px;
+
+                @include mq("tablet-wide") {
+                    margin: 0 -15px 0 0;
+                }
+                @include mq("phone-landscape") {
+                    overflow: hidden;
+                    margin: 0 0 0 10px;
+                    display: inline-block;
+                    width: 70%;
+                }
+            }
+        }
+        .arrow-box {
+            position: relative;
+            padding: 0 6px 20px 13px;
+            margin: -40px 0 148px;
+            align-self: flex-end;
+
+            @include mq("tablet-wide") {
+                margin: -40px 0 180px 0;
+                padding: 0 0 20px 2px;
+            }
+            @include mq("phone-landscape") {
+                margin: 10px 0 20px;
+                padding: 0 0 20px 100px;
+                min-height: 150px;
+                display: flex;
+                align-items: center;
+            }
+            @include mq("phablet") {
+                padding: 0 0 20px 100px;
+                min-height: 140px;
+                margin: 0 0 10px;
+            }
+            &:after {
+                width: 143px;
+                height: 10px;
+                display: block;
+                content: " ";
+                position: absolute;
+                bottom: 0;
+                left: 3px;
+                background: url(../image/arrow.png) no-repeat;
+                z-index: -1px;
+                @include mq("tablet-wide") {
+                    left: -23px;
+                }
+                @include mq("phone-landscape") {
+                    transform: rotate(90deg);
+                    left: 0;
+                    bottom: 70px;
+                }
+            }
+            .holder {
+                position: relative;
+                bottom: 0;
+            }
+            p {
+                font-size: 14px;
+                line-height: 20px;
+                color: #c4c0f4;
+                margin: 0 0 4px;
+            }
+        }
+        .link {
+            width: 100%;
+            margin: 0 0 20px;
+
+            a {
+                float: right;
+                border-bottom: 1px solid #3ea9ee;
+                transition: all 0.3s ease-in-out;
+                padding-bottom: 4px;
+                margin-right: 34px;
+
+                @include mq("tablet-wide") {
+                    margin-right: 23px;
+                }
+            }
+        }
+    }
+
+    /* clients */
+    &-clients {
+        background: #12111e;
+        padding-top: 96px;
+        padding-bottom: 101px;
+
+        @include mq("phone-landscape") {
+            padding-top: 57px;
+            padding-bottom: 25px;
+        }
+
+        @include mq("phablet") {
+            padding-top: 57px;
+            padding-bottom: 21px;
+        }
+
+        h2 {
+            color: #59558b;
+            margin: 0 0 36px;
+
+            @include mq("phablet") {
+                margin: 0 0 20px;
+            }
+        }
+        .top-info {
+            color: #fff;
+            margin-bottom: 56px;
+
+            @include mq("phone-landscape") {
+                padding-bottom: 23px;
+            }
+        }
+        .num {
+            font-weight: 500;
+            float: left;
+            margin: 0 47px 0 0;
+            line-height: 16px;
+
+            @include mq("phone-landscape") {
+                float: none;
+                display: inline-block;
+                margin: 0 47px 12px 0;
+            }
+        }
+        .large {
+            display: block;
+            font-size: 72px;
+            color: #fabf58;
+            line-height: 85px;
+            font-family: $FontMontserrat;
+
+            @include mq("phablet") {
+                font-size: 52px;
+            }
+        }
+        .frame-text {
+            background: #282642;
+            border-radius: 2px;
+            padding: 25px 50px 25px 40px;
+            position: relative;
+            width: calc(100% - 512px);
+            float: right;
+            top: -10px;
+
+            @include mq("tablet-wide") {
+                padding: 25px 30px 25px 30px;
+            }
+            @include mq("phone-landscape") {
+                display: block;
+                float: none;
+                width: 100%;
+                top: 30px;
+                margin: 0;
+                clear: both;
+            }
+
+            &:after {
+                content: " ";
+                display: block;
+                position: absolute;
+                bottom: -20px;
+                right: 56px;
+                background: url(../image/bg03.png) no-repeat;
+                width: 53px;
+                height: 20px;
+
+                @include mq("phone-landscape") {
+                    bottom: -20px;
+                }
+            }
+
+            p {
+                line-height: 26px;
+            }
+        }
+
+        /* description-box */
+        .description-content {
+            border-radius: 3px;
+            background: #fff;
+            position: relative;
+
+            @include mq("phone-landscape") {
+                display: block;
+            }
+
+            &:after {
+                content: " ";
+                display: block;
+                position: absolute;
+                top: -20px;
+                right: 56px;
+                background: url(../image/bg04.png) no-repeat;
+                width: 53px;
+                height: 20px;
+
+                @include mq("phone-landscape") {
+                    display: none;
+                }
+            }
+            .left-box {
+                background: #59558b;
+                width: 336px;
+                color: #fff;
+                padding: 0 20px 58px 58px;
+                border-radius: 3px 0 0 3px;
+
+                @include mq("phone-landscape") {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px 20px;
+                    align-items: center;
+                }
+                @include mq("phablet") {
+                    padding: 10px;
+                    display: block;
+                    text-align: center;
+                }
+
+                .logotipe {
+                    height: 212px;
+                    display: flex;
+                    align-items: center;
+
+                    @include mq("phone-landscape") {
+                        height: auto;
+                    }
+                    @include mq("phablet") {
+                        margin-bottom: 20px;
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    img {
+                        @include mq("phone-landscape") {
+                            max-height: 50px;
+                        }
+                    }
+
+                    a {
+                        display: inline-block;
+                    }
+                }
+
+                .list-menu {
+                    overflow: hidden;
+                    width: 100%;
+
+                    @include mq("phone-landscape") {
+                        width: auto;
+                    }
+                    li {
+                        float: left;
+                        width: 90px;
+                        position: relative;
+                        margin: 0 24px 0 0;
+                        padding: 0 0 0 34px;
+
+                        @include mq("phone-landscape") {
+                            width: auto;
+                            margin: 0;
+                        }
+
+                        &:after {
+                            display: block;
+                            background: #6b679b;
+                            height: 41px;
+                            width: 2px;
+                            content: " ";
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            @include mq("phone") {
+                                display: none;
+                            }
+                        }
+                        &:first-child {
+                            padding: 0;
+                            margin: 0 24px 0 0;
+
+                            @include mq("phone") {
+                                margin: 0 14px 0 0;
+                            }
+                        }
+                        &:first-child::after {
+                            display: none;
+                        }
+                        @include mq("phone") {
+                            padding: 0;
+                        }
+                    }
+                    strong {
+                        display: block;
+                        font-size: 36px;
+                        font-family: $FontMontserrat;
+                        font-weight: bold;
+                        margin-bottom: 12px;
+
+                        @include mq("phone-landscape") {
+                            display: inline-block;
+                            vertical-align: middle;
+                            font-size: 26px;
+                            margin-bottom: 6px;
+                        }
+                    }
+                    span {
+                        display: block;
+
+                        @include mq("phone-landscape") {
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+        }
+        .content {
+            width: calc(100% - 336px);
+            position: relative;
+
+            @include mq("phone-landscape") {
+                width: 100%;
+                height: 330px;
+            }
+            @include mq("phablet") {
+                height: 210px;
+            }
+
+            .list {
+                margin: 0;
+                overflow: hidden;
+                height: 100%;
+                background: #e9e8f3;
+
+                li {
+                    padding: 0;
+                    position: relative;
+                    height: 50%;
+                    background: #fff;
+                    overflow: hidden;
+
+                    &:nth-child(2n) {
+                        background: #e9e8f3;
+                    }
+
+                    a {
+                        display: block;
+                        padding: 9px 68px 0 30px;
+                        font-size: 14px;
+                        transition: all 0.3s ease-in-out;
+                        height: 100%;
+
+                        @include mq("tablet-wide") {
+                            padding: 5px 58px 0 20px;
+                        }
+                        @include mq("phablet") {
+                            padding: 5px 10px 0;
+                            text-align: center;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                        }
+                    }
+                    .holder-image {
+                        @include mq("phablet") {
+                            justify-content: center;
+                            height: 65px;
+                        }
+
+                        img {
+                            @include mq("phablet") {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                    .image-right {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        display: flex;
+                        align-items: center;
+
+                        @include mq("phablet") {
+                            display: none;
+                        }
+                    }
+                }
+                &.list2 {
+                    li {
+                        height: 100%;
+                    }
+                    .image-right {
+                        position: relative;
+                        height: 170px;
+                        display: flex;
+                        align-items: center;
+
+                        @include mq("tablet") {
+                            height: auto;
+                            padding-bottom: 10px;
+                        }
+                        @include mq("phablet") {
+                            display: none;
+                        }
+                    }
+                }
+                .holder-image {
+                    display: flex;
+                    align-items: center;
+                    height: 79px;
+
+                    @include mq("phablet") {
+                        justify-content: center;
+                        height: 120px;
+                    }
+                }
+                img {
+                    display: block;
+                }
+                span {
+                    display: block;
+                    font-size: 14px;
+                    color: #000;
+                    line-height: 20px;
+
+                    @include mq("tablet-wide") {
+                        line-height: 17px;
+                    }
+                    @include mq("phablet") {
+                        display: none;
+                    }
+                }
+                .link {
+                    display: block;
+                }
+            }
+        }
+        .slide-box {
+            padding-top: 41px;
+            margin: 0 0 30px;
+
+            .arrow {
+                width: 43px;
+                height: 10px;
+                display: inline-block;
+                vertical-align: middle;
+
+                svg {
+                    transition: all 0.3s ease-in-out;
+                    fill: #59558b;
+                    display: block;
+
+                    path {
+                        fill: inherit;
+                        stroke: inherit;
+                        stroke-width: inherit;
+                    }
+
+                    &:hover {
+                        fill: #de4a60;
+                    }
+                }
+                &:hover {
+                    svg {
+                        fill: #de4a60;
+                    }
+                }
+            }
+            .slide-content {
+                display: inline-block;
+                vertical-align: middle;
+                width: calc(100% - 95px);
+
+                ul {
+                    text-align: center;
+                }
+                li {
+                    display: inline-block;
+                    vertical-align: bottom;
+                    margin: 0 25px;
+
+                    @include mq("tablet-landscape") {
+                        margin: 0 15px;
+                    }
+                    @include mq("tablet-wide") {
+                        margin: 0 7px;
+                    }
+                    @include mq("phone-landscape") {
+                        text-align: center;
+                        display: none;
+                        height: 70px;
+                    }
+                    a {
+                        display: block;
+                        transition: all 0.3s ease-in-out;
+                    }
+                    &.active,
+                    a:hover {
+                        img {
+                            filter: brightness(0) invert(1);
+                            transition: all 0.5s ease-in-out;
+                        }
+                    }
+                    &.active {
+                        @include mq("phone-landscape") {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* faq */
+    &-faq {
+        background: #f6f5fb;
+        padding-top: 70px;
+        padding-bottom: 98px;
+        position: relative;
+
+        @include mq("tablet") {
+            padding-top: 57px;
+            padding-bottom: 50px;
+        }
+        h2 {
+            color: #3f3b71;
+            margin: 0 0 50px;
+        }
+        h2 + .line-content-box {
+            border-top: 1px solid #cecdd5;
+        }
+    }
+
+    /* line-content-box */
+    .line-content-box {
+        border-bottom: 1px solid #cecdd5;
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 33px 0 29px;
+
+            @include mq("phablet") {
+                padding: 23px 0 19px;
+            }
+
+            strong {
+                font-size: 18px;
+                font-family: $FontNunito;
+                margin: 0;
+                line-height: 27px;
+                color: #000;
+
+                @include mq("phablet") {
+                    font-size: 16px;
+                }
+                @include mq("phone") {
+                    width: 80%;
+                }
+            }
+            .bullet {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+            }
+            svg {
+                transition: all 0.3s ease-in-out;
+
+                path {
+                    fill: inherit;
+                    stroke: inherit;
+                    stroke-width: inherit;
+                }
+                &:hover {
+                    fill: #de4a60;
+                }
+            }
+            &:hover {
+                svg {
+                    fill: #de4a60;
+                }
+            }
+        }
+        &:first-child {
+            .content {
+                border-top: none;
+            }
+        }
+        .minus {
+            display: none;
+        }
+
+        .title-content {
+            margin-top: -12px;
+            .table {
+                border-collapse: collapse;
+                width: 764px;
+                margin-bottom: 36px;
+                @include mq("phone-landscape") {
+                    width: auto;
+                    margin-bottom: 26px;
+                }
+                tbody {
+                    @include mq("phablet") {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+                tr {
+                    @include mq("phablet") {
+                        display: block;
+                    }
+                }
+                td {
+                    font-size: 16px;
+                    color: #747382;
+                    padding: 4px 20px;
+                    @include mq("phone-landscape") {
+                        padding: 10px 0;
+                    }
+                    @include mq("phablet") {
+                        font-size: 14px;
+                        padding: 10px;
+                    }
+                    &:first-child {
+                        padding: 4px 20px 4px 0;
+                        width: 418px;
+                        @include mq("phone-landscape") {
+                            width: auto;
+                            display: block;
+                            padding: 10px;
+                        }
+                    }
+                    &:last-child {
+                        padding: 4px 0 4px 20px;
+                    }
+                }
+                .value {
+                    font-size: 16px;
+                    color: #59558b;
+                    @include mq("phone-landscape") {
+                        margin: 0 10px 0 0;
+                    }
+                }
+                .arrow {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 20px;
+                    height: 20px;
+                    svg {
+                        opacity: 0.2;
+                        transition: all 0.3s ease-in-out;
+                        path {
+                            fill: inherit;
+                            stroke: inherit;
+                            stroke-width: inherit;
+                        }
+                        &:hover {
+                            fill: #de4b61;
+                            opacity: 1;
+                        }
+                    }
+                }
+                .txt {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 47px;
+                    text-align: center;
+                    padding: 0 5px;
+                    @include mq("phone-landscape") {
+                        width: 30px;
+                    }
+                    input {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 16px;
+                        color: #000;
+                    }
+                }
+            }
+            .rub {
+                &:after {
+                    background: #747382;
+                }
+            }
+            .text {
+                padding: 4px 230px 43px 0;
+                @include mq("phone-landscape") {
+                    padding: 4px 40px 23px 0;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+    .line-content-open {
+        .minus {
+            display: block;
+        }
+        .plus {
+            display: none;
+        }
+    }
+
+    /* mail */
+    &-mail {
+        padding-top: 84px;
+        background: #fabf58;
+        position: relative;
+        min-height: 517px;
+        padding-bottom: 100px;
+
+        @include mq("tablet-wide") {
+            z-index: 3;
+        }
+        @include mq("tablet") {
+            padding-top: 54px;
+            padding-bottom: 50px;
+            min-height: auto;
+        }
+
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: calc(50% + 420px);
+            background: url(../image/bg07.png) repeat-y;
+            display: block;
+            content: " ";
+            width: 26px;
+            height: 100%;
+
+            @include mq("tablet-wide") {
+            }
+            @include mq("phone-landscape") {
+                left: calc(50% + 272px);
+            }
+            @include mq("tablet") {
+                display: none;
+            }
+        }
+        &:after {
+            position: absolute;
+            top: -10px;
+            left: calc(50% + 188px);
+            background: url(../image/bg06.jpg) no-repeat;
+            display: block;
+            content: " ";
+            width: 613px;
+            height: 517px;
+            z-index: 2;
+
+            @include mq("tablet-wide") {
+                background-size: cover;
+            }
+            @include mq("phone-landscape") {
+                left: calc(50% + 40px);
+            }
+            @include mq("tablet") {
+                display: none;
+            }
+        }
+        h2 {
+            color: #000;
+            margin: 0 0 46px;
+
+            @include mq("tablet-wide") {
+                z-index: 3;
+                position: relative;
+            }
+            @include mq("phablet") {
+                margin: 0 0 20px;
+            }
+        }
+        .row {
+            margin: 0 -15px 23px;
+            overflow: hidden;
+
+            @include mq("tablet-small") {
+                margin: 0 -15px 0;
+            }
+        }
+        .col {
+            padding: 0 15px;
+        }
+
+        .form-mail {
+            @include mq("tablet-wide") {
+                max-width: 680px;
+            }
+            @include mq("phone-landscape") {
+                max-width: 550px;
+            }
+            @include mq("tablet") {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+label.label {
+    display: block;
+    position: relative;
+    padding-left: 37px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #000;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    .checkmark {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: 1px solid #d1d0d7;
+        border-radius: 2px;
+    }
+    input:checked ~ .checkmark {
+        background-color: #de4a60;
+        border: 1px solid #de4a60;
+    }
+    .checkmark:after {
+        content: " ";
+        position: absolute;
+        display: none;
+    }
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+    .checkmark {
+        &:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+    .icon-info {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: url(../image/svg/info.svg) no-repeat;
+        margin-left: 5px;
+        position: relative;
+        top: 4px;
+        transition: all 0.3s ease-in-out;
+    }
+}
+.form-mail {
+    max-width: 847px;
+    position: relative;
+    z-index: 5;
+
+    h3 {
+        color: #ae8337;
+        margin: 0 0 28px;
+    }
+
+    .input-box {
+        background: #fff;
+        padding: 0 22px;
+        height: 40px;
+        border-radius: 3px;
+        position: relative;
+
+        input {
+            width: 100%;
+            font-size: 16px;
+            height: 100%;
+            color: #747382;
+            position: relative;
+
+            &::placeholder {
+                color: #747382;
+            }
+        }
+        .placeholder {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #747382;
+
+            .red {
+                color: #df5568;
+            }
+        }
+        .form-control:focus ~ .placeholder,
+        .form-control:valid ~ .placeholder {
+            display: none;
+        }
+    }
+    .check-box {
+        padding-top: 13px;
+        margin-bottom: 15px;
+
+        @include mq("phablet") {
+            display: block;
+        }
+
+        .label {
+            font-size: 14px;
+            color: #7e612c;
+            line-height: 30px;
+            padding-left: 44px;
+            padding-top: 5px;
+
+            @include mq("phone-landscape") {
+                line-height: 20px;
+            }
+            @include mq("phablet") {
+                margin: 0 0 10px;
+            }
+
+            .checkmark {
+                width: 26px;
+                height: 26px;
+                border-radius: 3px;
+                top: 5px;
+
+                @include mq("phone-landscape") {
+                    top: 9px;
+                }
+
+                &:after {
+                    left: 8px;
+                    top: 2px;
+                    width: 7px;
+                    height: 13px;
+                }
+            }
+        }
+    }
+    .submit {
+        background: #59558b;
+        height: 47px;
+        padding: 2px 46px 5px;
+        line-height: 24px;
+        border-radius: 27px;
+        color: #fff;
+        font-size: 18px;
+        font-family: $FontNunito;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: #de4a60;
+        }
+    }
+}
+/* footer */
+.footer {
+    background: #12111e;
+    min-height: 167px;
+    padding-top: 43px;
+
+    @include mq("phone-landscape") {
+        padding-bottom: 43px;
+    }
+
+    .container {
+        @include mq("phone-landscape") {
+            display: block;
+        }
+    }
+    .left-box {
+        @include mq("phone-landscape") {
+            margin: 0 0 30px;
+            justify-content: space-between;
+        }
+        @include mq("phablet") {
+            margin: 0 0 30px;
+            display: block;
+        }
+    }
+    p {
+        color: #fff;
+        margin: 0 0 5px;
+        font-size: 14px;
+    }
+    .info {
+        margin-right: 65px;
+        position: relative;
+        padding: 0 0 0 34px;
+
+        @include mq("phone-landscape") {
+            margin-right: 0;
+        }
+        @include mq("phablet") {
+            display: block;
+            margin: 0 0 30px;
+        }
+
+        strong {
+            a {
+                display: inline-block;
+                border-bottom: 1px solid #3f3b71;
+                padding-bottom: 6px;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        &:after {
+            position: absolute;
+            display: block;
+            content: " ";
+            top: 8px;
+            left: 0;
+        }
+        &.mail {
+            &:after {
+                background: url(../image/svg/mail.svg) no-repeat;
+                width: 14px;
+                height: 11px;
+            }
+        }
+        &.support {
+            &:after {
+                background: url(../image/svg/support.svg) no-repeat;
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+    .right-box {
+        padding-top: 11px;
+
+        @include mq("phone-landscape") {
+            text-align: center;
+        }
+
+        p {
+            font-size: 12px;
+            color: #43406a;
+            line-height: 26px;
+            margin: 0 0 6px;
+
+            a {
+                color: #595683;
+            }
+        }
+        .copy {
+            color: #595683;
+        }
+        .logo {
+            position: relative;
+            display: inline-block;
+            padding: 0 0 0 47px;
+            margin: 0 0 0 15px;
+
+            &:after {
+                background: url(../image/logo-footer.png) no-repeat;
+                width: 41px;
+                height: 17px;
+                display: block;
+                content: " ";
+                position: absolute;
+                top: 3px;
+                left: 0;
+            }
+        }
+    }
+}
+.popup-box {
+    overflow: hidden;
+    min-width: 554px;
+    background: #fabf58;
+    border-radius: 3px;
+    position: relative;
+    padding: 45px 43px 30px;
+    z-index: 10;
+    display: none;
+
+    @include mq("tablet-small") {
+        width: 100%;
+        left: 0;
+        min-width: auto;
+        height: 100vh;
+    }
+
+    .close {
+        position: absolute;
+        top: 18px;
+        right: 21px;
+        display: block;
+        width: 31px;
+        height: 31px;
+
+        svg {
+            transition: all 0.3s ease-in-out;
+            fill: #fff;
+
+            path {
+                fill: inherit;
+                stroke: inherit;
+                stroke-width: inherit;
+            }
+            &:hover {
+                fill: #de4a60;
+            }
+        }
+        &:hover {
+            svg {
+                fill: #de4a60;
+            }
+        }
+    }
+
+    h3 {
+        color: #000;
+        margin: 0 0 26px;
+    }
+    .label {
+        margin: 0 0 21px;
+
+        @include mq("tablet-small") {
+            line-height: 18px !important;
+        }
+    }
+    .input-box {
+        margin: 0 0 20px;
+    }
+    .submit {
+        float: right;
+        margin: 0 0 20px;
+
+        @include mq("tablet-small") {
+            float: left;
+        }
+    }
+}
+.custom-box-content {
+    @include mq("tablet-small") {
+        display: inline-block;
+    }
+}
